@@ -1,4 +1,8 @@
-require('dotenv').config(); // for local testing
+try {
+  require('dotenv').config(); // for local development, loads .env file
+} catch (e) {
+  // Running on GitHub Actions, dotenv isn't needed here
+}
 const fs = require('fs');
 
 const LIST_ID = process.env.CLICKUP_ELECTRICAL_TASK_LIST_ID;
