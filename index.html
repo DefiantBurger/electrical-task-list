@@ -4,625 +4,369 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electrical Task List</title>
+    <title>Club Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+    <style>
+        /* Force Grid.js container layout to utilize flex full height internal scrolls */
+        .gridjs-wrapper { box-shadow: none !important; border-radius: 0 !important; border: none !important; flex: 1 1 0% !important; overflow-y: auto !important; }
+        .gridjs-container { height: 100% !important; display: flex !important; flex-direction: column !important; }
+        .gridjs-footer { border-top: 1px solid #e2e8f0 !important; padding: 6px 12px !important; margin-top: auto; }
+        .gridjs-head { padding: 8px 12px 4px 12px !important; }
+    </style>
 </head>
-<body class="bg-slate-100 min-h-screen text-gray-800">
+<body class="bg-slate-50 h-screen w-screen flex flex-col overflow-hidden text-slate-800">
 
-    <nav class="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between shadow-sm">
-        <div class="flex items-center gap-3">
-            <div class="bg-yellow-600 text-white p-2 rounded-lg font-bold text-lg leading-none">
-              ⚡
-            </div>
+    <nav class="bg-white border-b border-slate-200 px-4 py-2 flex items-center justify-between shadow-sm flex-shrink-0 h-14">
+        <div class="flex items-center gap-2">
+            <div class="bg-yellow-600 text-white w-7 h-7 rounded-lg font-bold text-sm flex items-center justify-center shadow-sm">⚡</div>
             <div>
-                <h1 class="text-xl font-bold tracking-tight">Electrical Task List</h1>
-                <p class="text-xs text-gray-400">Synced: 6/18/2026, 9:30:58 PM</p>
+                <h1 class="text-sm font-bold text-slate-900 leading-tight tracking-tight">Club Projects</h1>
+                <p class="text-[10px] text-slate-400">Synced: 6/18/2026, 10:07:57 PM</p>
             </div>
         </div>
         
-        <div class="bg-gray-100 p-1 rounded-lg flex gap-1">
-            <button id="btn-list" onclick="setView('list')" class="px-4 py-1.5 rounded-md text-sm font-medium transition shadow-sm bg-white text-gray-800">
-                📝 List View
+        <div class="bg-slate-100 p-0.5 rounded-md flex gap-0.5 border border-slate-200 text-xs">
+            <button id="btn-list" onclick="setView('list')" class="px-3 py-1 rounded font-semibold transition shadow-sm bg-white text-slate-800">
+                📝 List
             </button>
-            <button id="btn-board" onclick="setView('board')" class="px-4 py-1.5 rounded-md text-sm font-medium transition text-gray-500 hover:text-gray-800">
-                📋 Board View
+            <button id="btn-board" onclick="setView('board')" class="px-3 py-1 rounded font-semibold transition text-slate-500 hover:text-slate-800">
+                📋 Board
             </button>
         </div>
     </nav>
 
-    <main class="p-6 max-w-7xl mx-auto">
+    <main class="flex-1 w-full p-3 min-h-0 overflow-hidden relative">
         
-        <div id="view-list" class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-            <table class="w-full text-left border-collapse">
-                <thead>
-                    <tr class="bg-gray-50 border-b border-gray-200 text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                        <th class="py-3 px-4">Task Name</th>
-                        <th class="py-3 px-4">Status</th>
-                        <th class="py-3 px-4">Assignee</th>
-                        <th class="py-3 px-4 text-right">Link</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">Battery management system</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hrn" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">Help science</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hrm" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">Make antenna spin</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hrj" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">Part list on bottom of pcbs</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hrg" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">Electrical box + chassis integration</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hrd" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">RPi Ethernet Switch</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hrc" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">Cooling for camera pis</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hra" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">360 cam</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hr9" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">Tri-band</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hr3" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">Backup off-the-shelf buck converters on custom pcbs to fit onto our pdb</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hr2" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">Inventory system</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hr0" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">Buck converter backups</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hqy" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">Hot-swappable batteries (at least for logic)</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hqx" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">ESD protection in the lab</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hqw" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">Better documentation organization</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hqt" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">Clean up antenna wiring</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hqr" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">Get camera code to use multiple cores properly</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hqj" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">Training PCBs</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hqg" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">Find a different buck converter chip that is easier to solder</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hqf" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">Recruitment</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #0091ff">
-          PLANNED
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Joseph Cicalese, EB</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hqe" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">Better equipment/supplies</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hqd" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">Custom batteries</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hqb" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">ESD protection for CAN transceiver</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hq7" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">Plan & organize skills training</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hq5" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">Rotating cams</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hpz" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-      <td class="py-3 px-4 font-medium text-gray-800">Custom motor controllers</td>
-      <td class="py-3 px-4">
-        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
-          POSSIBLE
-        </span>
-      </td>
-      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
-      <td class="py-3 px-4 text-right">
-        <a href="https://app.clickup.com/t/86baf6hpv" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
-      </td>
-    </tr>
-  
-                </tbody>
-            </table>
-        </div>
+        <div id="view-list" class="bg-white rounded-lg shadow-sm border border-slate-200 h-full w-full overflow-hidden flex flex-col"></div>
 
-        <div id="view-board" class="hidden flex gap-4 overflow-x-auto items-start pb-4">
+        <div id="view-board" class="hidden h-full w-full flex gap-3 overflow-x-auto items-start pb-1">
             
-    <div class="flex-1 min-w-[280px] bg-gray-50 p-4 rounded-lg flex flex-col gap-3">
-      <div class="flex items-center gap-2 pb-2 border-b-2" style="border-color: #a18072">
-        <span class="w-2 h-2 rounded-full" style="background-color: #a18072"></span>
-        <h3 class="font-bold text-gray-700 text-sm uppercase tracking-wider">possible</h3>
-        <span class="ml-auto bg-gray-200 text-gray-600 text-xs px-2 py-0.5 rounded-full font-bold">25</span>
+      <div class="w-72 bg-slate-100 flex flex-col rounded-lg border border-slate-200 h-full flex-shrink-0 shadow-sm overflow-hidden">
+        <div class="flex items-center justify-between p-2.5 border-b bg-slate-50" style="border-bottom-color: #f87171; border-bottom-width: 2px;">
+          <div class="flex items-center gap-1.5 min-w-0">
+            <span class="w-2 h-2 rounded-full flex-shrink-0" style="background-color: #f87171"></span>
+            <h3 class="font-bold text-slate-700 text-xs uppercase tracking-wider truncate">POSSIBLE</h3>
+          </div>
+          <span class="bg-slate-200 text-slate-600 text-[11px] px-1.5 py-0.5 rounded-full font-bold ml-2">25</span>
+        </div>
+        <div class="flex-1 overflow-y-auto p-2 flex flex-col gap-2 bg-slate-50/50">
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">Battery management system</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">Help science</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">Make antenna spin</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">Part list on bottom of pcbs</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">Electrical box + chassis integration</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">RPi Ethernet Switch</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">Cooling for camera pis</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">360 cam</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">Tri-band</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">Backup off-the-shelf buck converters on custom pcbs to fit onto our pdb</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">Inventory system</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">Buck converter backups</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">Hot-swappable batteries (at least for logic)</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">ESD protection in the lab</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">Better documentation organization</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">Clean up antenna wiring</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">Get camera code to use multiple cores properly</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">Training PCBs</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">Find a different buck converter chip that is easier to solder</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">Better equipment/supplies</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">Custom batteries</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">ESD protection for CAN transceiver</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">Plan & organize skills training</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">Rotating cams</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">Custom motor controllers</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+        </div>
       </div>
-      <div class="flex flex-col gap-3 overflow-y-auto max-h-[600px]">
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">Battery management system</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hrn" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
+    
+      <div class="w-72 bg-slate-100 flex flex-col rounded-lg border border-slate-200 h-full flex-shrink-0 shadow-sm overflow-hidden">
+        <div class="flex items-center justify-between p-2.5 border-b bg-slate-50" style="border-bottom-color: #fbbf24; border-bottom-width: 2px;">
+          <div class="flex items-center gap-1.5 min-w-0">
+            <span class="w-2 h-2 rounded-full flex-shrink-0" style="background-color: #fbbf24"></span>
+            <h3 class="font-bold text-slate-700 text-xs uppercase tracking-wider truncate">PLANNED</h3>
           </div>
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">Help science</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hrm" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+          <span class="bg-slate-200 text-slate-600 text-[11px] px-1.5 py-0.5 rounded-full font-bold ml-2">1</span>
+        </div>
+        <div class="flex-1 overflow-y-auto p-2 flex flex-col gap-2 bg-slate-50/50">
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">Recruitment</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Joseph Cicalese, EB</span>
+                <span>📅 —</span>
+              </div>
             </div>
-          </div>
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">Make antenna spin</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hrj" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
-          </div>
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">Part list on bottom of pcbs</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hrg" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
-          </div>
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">Electrical box + chassis integration</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hrd" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
-          </div>
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">RPi Ethernet Switch</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hrc" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
-          </div>
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">Cooling for camera pis</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hra" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
-          </div>
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">360 cam</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hr9" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
-          </div>
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">Tri-band</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hr3" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
-          </div>
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">Backup off-the-shelf buck converters on custom pcbs to fit onto our pdb</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hr2" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
-          </div>
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">Inventory system</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hr0" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
-          </div>
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">Buck converter backups</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hqy" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
-          </div>
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">Hot-swappable batteries (at least for logic)</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hqx" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
-          </div>
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">ESD protection in the lab</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hqw" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
-          </div>
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">Better documentation organization</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hqt" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
-          </div>
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">Clean up antenna wiring</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hqr" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
-          </div>
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">Get camera code to use multiple cores properly</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hqj" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
-          </div>
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">Training PCBs</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hqg" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
-          </div>
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">Find a different buck converter chip that is easier to solder</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hqf" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
-          </div>
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">Better equipment/supplies</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hqd" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
-          </div>
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">Custom batteries</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hqb" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
-          </div>
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">ESD protection for CAN transceiver</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hq7" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
-          </div>
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">Plan & organize skills training</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hq5" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
-          </div>
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">Rotating cams</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hpz" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
-          </div>
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">Custom motor controllers</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">👤 Unassigned</span>
-              <a href="https://app.clickup.com/t/86baf6hpv" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
-          </div>
-        
+          
+        </div>
       </div>
-    </div>
-  
-    <div class="flex-1 min-w-[280px] bg-gray-50 p-4 rounded-lg flex flex-col gap-3">
-      <div class="flex items-center gap-2 pb-2 border-b-2" style="border-color: #0091ff">
-        <span class="w-2 h-2 rounded-full" style="background-color: #0091ff"></span>
-        <h3 class="font-bold text-gray-700 text-sm uppercase tracking-wider">planned</h3>
-        <span class="ml-auto bg-gray-200 text-gray-600 text-xs px-2 py-0.5 rounded-full font-bold">1</span>
-      </div>
-      <div class="flex flex-col gap-3 overflow-y-auto max-h-[600px]">
-        
-          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
-            <h4 class="font-medium text-gray-800 text-sm">Recruitment</h4>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-xs text-gray-400">Joseph Cicalese</span>
-              <a href="https://app.clickup.com/t/86baf6hqe" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
-            </div>
+    
+      <div class="w-72 bg-slate-100 flex flex-col rounded-lg border border-slate-200 h-full flex-shrink-0 shadow-sm overflow-hidden">
+        <div class="flex items-center justify-between p-2.5 border-b bg-slate-50" style="border-bottom-color: #60a5fa; border-bottom-width: 2px;">
+          <div class="flex items-center gap-1.5 min-w-0">
+            <span class="w-2 h-2 rounded-full flex-shrink-0" style="background-color: #60a5fa"></span>
+            <h3 class="font-bold text-slate-700 text-xs uppercase tracking-wider truncate">IN PROGRESS</h3>
           </div>
-        
+          <span class="bg-slate-200 text-slate-600 text-[11px] px-1.5 py-0.5 rounded-full font-bold ml-2">1</span>
+        </div>
+        <div class="flex-1 overflow-y-auto p-2 flex flex-col gap-2 bg-slate-50/50">
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">Test in progress task</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 7/3/2026</span>
+              </div>
+            </div>
+          
+        </div>
       </div>
-    </div>
-  
+    
+      <div class="w-72 bg-slate-100 flex flex-col rounded-lg border border-slate-200 h-full flex-shrink-0 shadow-sm overflow-hidden">
+        <div class="flex items-center justify-between p-2.5 border-b bg-slate-50" style="border-bottom-color: #34d399; border-bottom-width: 2px;">
+          <div class="flex items-center gap-1.5 min-w-0">
+            <span class="w-2 h-2 rounded-full flex-shrink-0" style="background-color: #34d399"></span>
+            <h3 class="font-bold text-slate-700 text-xs uppercase tracking-wider truncate">COMPLETE</h3>
+          </div>
+          <span class="bg-slate-200 text-slate-600 text-[11px] px-1.5 py-0.5 rounded-full font-bold ml-2">1</span>
+        </div>
+        <div class="flex-1 overflow-y-auto p-2 flex flex-col gap-2 bg-slate-50/50">
+          
+            <div class="bg-white p-2.5 rounded border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col gap-1.5 text-xs">
+              <h4 class="font-semibold text-slate-800 leading-tight">test complete task</h4>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-slate-400 text-[10px]">
+                <span class="truncate max-w-[140px]">👤 Unassigned</span>
+                <span>📅 —</span>
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    
         </div>
 
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.umd.js"></script>
+    
     <script>
+        const rawTaskData = [{"id":"86bagxg1t","name":"test complete task","status":"COMPLETE","statusColor":"#008844","assignee":"Unassigned","description":"","url":"https://app.clickup.com/t/86bagxg1t","dueDate":"—"},{"id":"86bagxg07","name":"Test in progress task","status":"IN PROGRESS","statusColor":"#5f55ee","assignee":"Unassigned","description":"","url":"https://app.clickup.com/t/86bagxg07","dueDate":"7/3/2026"},{"id":"86baf6hrn","name":"Battery management system","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"","url":"https://app.clickup.com/t/86baf6hrn","dueDate":"—"},{"id":"86baf6hrm","name":"Help science","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"","url":"https://app.clickup.com/t/86baf6hrm","dueDate":"—"},{"id":"86baf6hrj","name":"Make antenna spin","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"","url":"https://app.clickup.com/t/86baf6hrj","dueDate":"—"},{"id":"86baf6hrg","name":"Part list on bottom of pcbs","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"","url":"https://app.clickup.com/t/86baf6hrg","dueDate":"—"},{"id":"86baf6hrd","name":"Electrical box + chassis integration","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"","url":"https://app.clickup.com/t/86baf6hrd","dueDate":"—"},{"id":"86baf6hrc","name":"RPi Ethernet Switch","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"","url":"https://app.clickup.com/t/86baf6hrc","dueDate":"—"},{"id":"86baf6hra","name":"Cooling for camera pis","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"","url":"https://app.clickup.com/t/86baf6hra","dueDate":"—"},{"id":"86baf6hr9","name":"360 cam","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"","url":"https://app.clickup.com/t/86baf6hr9","dueDate":"—"},{"id":"86baf6hr3","name":"Tri-band","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"","url":"https://app.clickup.com/t/86baf6hr3","dueDate":"—"},{"id":"86baf6hr2","name":"Backup off-the-shelf buck converters on custom pcbs to fit onto our pdb","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"Possibly a good beginner project for new members","url":"https://app.clickup.com/t/86baf6hr2","dueDate":"—"},{"id":"86baf6hr0","name":"Inventory system","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"","url":"https://app.clickup.com/t/86baf6hr0","dueDate":"—"},{"id":"86baf6hqy","name":"Buck converter backups","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"","url":"https://app.clickup.com/t/86baf6hqy","dueDate":"—"},{"id":"86baf6hqx","name":"Hot-swappable batteries (at least for logic)","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"","url":"https://app.clickup.com/t/86baf6hqx","dueDate":"—"},{"id":"86baf6hqw","name":"ESD protection in the lab","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"Grounding mat\nGrounding wrist straps","url":"https://app.clickup.com/t/86baf6hqw","dueDate":"—"},{"id":"86baf6hqt","name":"Better documentation organization","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"Electrical:\n  ↳Projects:\n↳Buck Converter:\n↳buck_converter_notes_v1.doc\n↳\"_notes_v2.doc\n↳\"_BOM_v1.doc\n↳\"_BOM_v2.doc\n↳Images:\n↳buck_converter_schematic.jpg\n↳\"_pcb.jpg\n↳\"_soldered.jpg","url":"https://app.clickup.com/t/86baf6hqt","dueDate":"—"},{"id":"86baf6hqr","name":"Clean up antenna wiring","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"","url":"https://app.clickup.com/t/86baf6hqr","dueDate":"—"},{"id":"86baf6hqj","name":"Get camera code to use multiple cores properly","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"","url":"https://app.clickup.com/t/86baf6hqj","dueDate":"—"},{"id":"86baf6hqg","name":"Training PCBs","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"","url":"https://app.clickup.com/t/86baf6hqg","dueDate":"—"},{"id":"86baf6hqf","name":"Find a different buck converter chip that is easier to solder","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"","url":"https://app.clickup.com/t/86baf6hqf","dueDate":"—"},{"id":"86baf6hqe","name":"Recruitment","status":"PLANNED","statusColor":"#0091ff","assignee":"Joseph Cicalese, EB","description":"","url":"https://app.clickup.com/t/86baf6hqe","dueDate":"—"},{"id":"86baf6hqd","name":"Better equipment/supplies","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"DMM\nPower supply\nSoldering station\nFluke multimeter\nDMM Probes","url":"https://app.clickup.com/t/86baf6hqd","dueDate":"—"},{"id":"86baf6hqb","name":"Custom batteries","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"","url":"https://app.clickup.com/t/86baf6hqb","dueDate":"—"},{"id":"86baf6hq7","name":"ESD protection for CAN transceiver","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"","url":"https://app.clickup.com/t/86baf6hq7","dueDate":"—"},{"id":"86baf6hq5","name":"Plan & organize skills training","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"","url":"https://app.clickup.com/t/86baf6hq5","dueDate":"—"},{"id":"86baf6hpz","name":"Rotating cams","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"","url":"https://app.clickup.com/t/86baf6hpz","dueDate":"—"},{"id":"86baf6hpv","name":"Custom motor controllers","status":"POSSIBLE","statusColor":"#a18072","assignee":"Unassigned","description":"","url":"https://app.clickup.com/t/86baf6hpv","dueDate":"—"}];
+
+        const gridData = rawTaskData.map(task => [
+            task.name,
+            task.status,
+            task.statusColor,
+            task.assignee,
+            task.dueDate,
+            task.url
+        ]);
+
+        new gridjs.Grid({
+            columns: [
+                { name: 'Task Name', width: '40%' },
+                { 
+                    name: 'Status', 
+                    width: '15%',
+                    formatter: (cell, row) => {
+                        const hexColor = row.cells[2].data;
+                        return gridjs.html(`<span class="inline-block px-1.5 py-0.5 text-[10px] font-bold rounded text-white" style="background-color: ${hexColor}">${cell}</span>`);
+                    }
+                },
+                { name: 'ColorValue', hidden: true },
+                { name: 'Assignee', width: '18%' },
+                { name: 'Due Date', width: '15%' },
+            ],
+            data: gridData,
+            search: true,
+            sort: true,
+            pagination: {
+                limit: 25 // Elevated row count to utilize larger table canvas area
+            },
+            className: {
+                container: 'h-full flex flex-col',
+                table: 'w-full border-collapse',
+                thead: 'bg-slate-50 border-b border-slate-200 text-slate-500 font-bold text-[11px] uppercase sticky top-0 z-10',
+                search: 'mb-2 text-xs',
+                th: 'p-2 text-left font-semibold text-[11px] uppercase text-slate-500 tracking-wider',
+                td: 'p-2 text-xs text-slate-700 border-b border-slate-100 font-medium'
+            }
+        }).render(document.getElementById("view-list"));
+
         function setView(viewType) {
             const listContainer = document.getElementById('view-list');
             const boardContainer = document.getElementById('view-board');
@@ -632,15 +376,14 @@
             if (viewType === 'list') {
                 listContainer.classList.remove('hidden');
                 boardContainer.classList.add('hidden');
-                
-                btnList.className = "px-4 py-1.5 rounded-md text-sm font-medium transition shadow-sm bg-white text-gray-800";
-                btnBoard.className = "px-4 py-1.5 rounded-md text-sm font-medium transition text-gray-500 hover:text-gray-800";
+                btnList.className = "px-3 py-1 rounded font-semibold transition shadow-sm bg-white text-slate-800";
+                btnBoard.className = "px-3 py-1 rounded font-semibold transition text-slate-500 hover:text-slate-800";
+                window.dispatchEvent(new Event('resize')); // Forces Grid.js table layout re-alignment calculations
             } else {
                 listContainer.classList.add('hidden');
                 boardContainer.classList.remove('hidden');
-
-                btnList.className = "px-4 py-1.5 rounded-md text-sm font-medium transition text-gray-500 hover:text-gray-800";
-                btnBoard.className = "px-4 py-1.5 rounded-md text-sm font-medium transition shadow-sm bg-white text-gray-800";
+                btnList.className = "px-3 py-1 rounded font-semibold transition text-slate-500 hover:text-slate-800";
+                btnBoard.className = "px-3 py-1 rounded font-semibold transition shadow-sm bg-white text-slate-800";
             }
         }
     </script>
