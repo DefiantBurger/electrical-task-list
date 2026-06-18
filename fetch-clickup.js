@@ -9,7 +9,12 @@ const LIST_ID = process.env.CLICKUP_ELECTRICAL_TASK_LIST_ID;
 const API_TOKEN = process.env.CLICKUP_API_TOKEN;
 
 if (!API_TOKEN) {
-  console.error("❌ Error: CLICKUP_TOKEN is missing. Check your .env file!");
+  console.error("❌ Error: CLICKUP_API_TOKEN is missing. Check your .env file!");
+  process.exit(1);
+}
+
+if (!LIST_ID) {
+  console.error("❌ Error: CLICKUP_ELECTRICAL_TASK_LIST_ID is missing. Check your .env file!");
   process.exit(1);
 }
 
