@@ -1,0 +1,649 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrical Task List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-100 min-h-screen text-gray-800">
+
+    <nav class="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between shadow-sm">
+        <div class="flex items-center gap-3">
+            <div class="bg-yellow-600 text-white p-2 rounded-lg font-bold text-lg leading-none">
+              ⚡
+            </div>
+            <div>
+                <h1 class="text-xl font-bold tracking-tight">Electrical Task List</h1>
+                <p class="text-xs text-gray-400">Synced: 6/18/2026, 4:20:27 PM</p>
+            </div>
+        </div>
+        
+        <div class="bg-gray-100 p-1 rounded-lg flex gap-1">
+            <button id="btn-list" onclick="setView('list')" class="px-4 py-1.5 rounded-md text-sm font-medium transition shadow-sm bg-white text-gray-800">
+                📝 List View
+            </button>
+            <button id="btn-board" onclick="setView('board')" class="px-4 py-1.5 rounded-md text-sm font-medium transition text-gray-500 hover:text-gray-800">
+                📋 Board View
+            </button>
+        </div>
+    </nav>
+
+    <main class="p-6 max-w-7xl mx-auto">
+        
+        <div id="view-list" class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-gray-50 border-b border-gray-200 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                        <th class="py-3 px-4">Task Name</th>
+                        <th class="py-3 px-4">Status</th>
+                        <th class="py-3 px-4">Assignee</th>
+                        <th class="py-3 px-4 text-right">Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">Battery management system</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hrn" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">Help science</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hrm" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">Make antenna spin</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hrj" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">Part list on bottom of pcbs</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hrg" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">Electrical box + chassis integration</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hrd" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">RPi Ethernet Switch</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hrc" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">Cooling for camera pis</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hra" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">360 cam</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hr9" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">Tri-band</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hr3" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">Backup off-the-shelf buck converters on custom pcbs to fit onto our pdb</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hr2" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">Inventory system</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hr0" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">Buck converter backups</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hqy" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">Hot-swappable batteries (at least for logic)</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hqx" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">ESD protection in the lab</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hqw" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">Better documentation organization</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hqt" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">Clean up antenna wiring</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hqr" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">Get camera code to use multiple cores properly</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hqj" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">Training PCBs</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hqg" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">Find a different buck converter chip that is easier to solder</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hqf" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">Recruitment</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #0091ff">
+          PLANNED
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Joseph Cicalese, EB</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hqe" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">Better equipment/supplies</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hqd" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">Custom batteries</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hqb" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">ESD protection for CAN transceiver</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hq7" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">Plan & organize skills training</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hq5" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">Rotating cams</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hpz" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+      <td class="py-3 px-4 font-medium text-gray-800">Custom motor controllers</td>
+      <td class="py-3 px-4">
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded text-white" style="background-color: #a18072">
+          POSSIBLE
+        </span>
+      </td>
+      <td class="py-3 px-4 text-sm text-gray-500">Unassigned</td>
+      <td class="py-3 px-4 text-right">
+        <a href="https://app.clickup.com/t/86baf6hpv" target="_blank" class="text-blue-600 hover:underline text-sm font-medium">Open ↗</a>
+      </td>
+    </tr>
+  
+                </tbody>
+            </table>
+        </div>
+
+        <div id="view-board" class="hidden flex gap-4 overflow-x-auto items-start pb-4">
+            
+    <div class="flex-1 min-w-[280px] bg-gray-50 p-4 rounded-lg flex flex-col gap-3">
+      <div class="flex items-center gap-2 pb-2 border-b-2" style="border-color: #a18072">
+        <span class="w-2 h-2 rounded-full" style="background-color: #a18072"></span>
+        <h3 class="font-bold text-gray-700 text-sm uppercase tracking-wider">possible</h3>
+        <span class="ml-auto bg-gray-200 text-gray-600 text-xs px-2 py-0.5 rounded-full font-bold">25</span>
+      </div>
+      <div class="flex flex-col gap-3 overflow-y-auto max-h-[600px]">
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">Battery management system</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hrn" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">Help science</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hrm" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">Make antenna spin</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hrj" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">Part list on bottom of pcbs</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hrg" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">Electrical box + chassis integration</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hrd" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">RPi Ethernet Switch</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hrc" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">Cooling for camera pis</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hra" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">360 cam</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hr9" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">Tri-band</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hr3" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">Backup off-the-shelf buck converters on custom pcbs to fit onto our pdb</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hr2" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">Inventory system</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hr0" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">Buck converter backups</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hqy" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">Hot-swappable batteries (at least for logic)</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hqx" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">ESD protection in the lab</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hqw" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">Better documentation organization</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hqt" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">Clean up antenna wiring</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hqr" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">Get camera code to use multiple cores properly</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hqj" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">Training PCBs</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hqg" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">Find a different buck converter chip that is easier to solder</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hqf" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">Better equipment/supplies</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hqd" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">Custom batteries</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hqb" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">ESD protection for CAN transceiver</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hq7" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">Plan & organize skills training</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hq5" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">Rotating cams</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hpz" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">Custom motor controllers</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">👤 Unassigned</span>
+              <a href="https://app.clickup.com/t/86baf6hpv" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  
+    <div class="flex-1 min-w-[280px] bg-gray-50 p-4 rounded-lg flex flex-col gap-3">
+      <div class="flex items-center gap-2 pb-2 border-b-2" style="border-color: #0091ff">
+        <span class="w-2 h-2 rounded-full" style="background-color: #0091ff"></span>
+        <h3 class="font-bold text-gray-700 text-sm uppercase tracking-wider">planned</h3>
+        <span class="ml-auto bg-gray-200 text-gray-600 text-xs px-2 py-0.5 rounded-full font-bold">1</span>
+      </div>
+      <div class="flex flex-col gap-3 overflow-y-auto max-h-[600px]">
+        
+          <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200 hover:shadow-md transition flex flex-col gap-2">
+            <h4 class="font-medium text-gray-800 text-sm">Recruitment</h4>
+            <div class="flex items-center justify-between mt-2">
+              <span class="text-xs text-gray-400">Joseph Cicalese</span>
+              <a href="https://app.clickup.com/t/86baf6hqe" target="_blank" class="text-xs text-blue-500 font-semibold hover:underline">View</a>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  
+        </div>
+
+    </main>
+
+    <script>
+        function setView(viewType) {
+            const listContainer = document.getElementById('view-list');
+            const boardContainer = document.getElementById('view-board');
+            const btnList = document.getElementById('btn-list');
+            const btnBoard = document.getElementById('btn-board');
+
+            if (viewType === 'list') {
+                listContainer.classList.remove('hidden');
+                boardContainer.classList.add('hidden');
+                
+                btnList.className = "px-4 py-1.5 rounded-md text-sm font-medium transition shadow-sm bg-white text-gray-800";
+                btnBoard.className = "px-4 py-1.5 rounded-md text-sm font-medium transition text-gray-500 hover:text-gray-800";
+            } else {
+                listContainer.classList.add('hidden');
+                boardContainer.classList.remove('hidden');
+
+                btnList.className = "px-4 py-1.5 rounded-md text-sm font-medium transition text-gray-500 hover:text-gray-800";
+                btnBoard.className = "px-4 py-1.5 rounded-md text-sm font-medium transition shadow-sm bg-white text-gray-800";
+            }
+        }
+    </script>
+</body>
+</html>
+  
