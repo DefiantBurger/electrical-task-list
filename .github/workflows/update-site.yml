@@ -14,6 +14,9 @@ permissions:
 
 jobs:
   build-and-deploy:
+    # Toggle: set repo variable SITE_UPDATES_ENABLED=false to pause automatic
+    # (scheduled/push) updates. Manual runs via workflow_dispatch always go through.
+    if: github.event_name == 'workflow_dispatch' || vars.SITE_UPDATES_ENABLED != 'false'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repository
@@ -22,7 +25,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v6
       with:
-        node-version: 20
+        node-version: 24
 
     - name: Fetch ClickUp Data & Build HTML
       env:
