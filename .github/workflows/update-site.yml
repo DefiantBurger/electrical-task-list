@@ -1,9 +1,9 @@
 name: Update Electrical Task List Website
 
 on:
-  schedule:
-    # Runs every hour (adjust CRON schedule as needed)
-    - cron: '0 * * * *'
+  # schedule:
+  #   # Runs every hour (adjust CRON schedule as needed)
+  #   - cron: '0 * * * *'
   workflow_dispatch: # Allows you to run it manually anytime
   push: # Triggers on push to main branch, adjust if needed
     branches:
@@ -14,9 +14,6 @@ permissions:
 
 jobs:
   build-and-deploy:
-    # Toggle: set repo variable SITE_UPDATES_ENABLED=false to pause automatic
-    # (scheduled/push) updates. Manual runs via workflow_dispatch always go through.
-    if: github.event_name == 'workflow_dispatch' || vars.SITE_UPDATES_ENABLED != 'false'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repository
